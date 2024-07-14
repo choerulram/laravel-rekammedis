@@ -32,6 +32,6 @@ Route::get('/dataobat-admin', function () {
     return view('admin.dataobat');
 });
 
-Route::get('/datadokter', [DokterController::class, 'index'])->middleware('auth');
-Route::get('/datadokter-add', [DokterController::class, 'create'])->middleware('auth');
-Route::post('/datadokter', [DokterController::class, 'store'])->middleware('auth');
+Route::get('/datadokter', [DokterController::class, 'index']);
+Route::get('/datadokter-add', [DokterController::class, 'create']);
+// Route::post('/datadokter', [DokterController::class, 'store'])->middleware('auth');
