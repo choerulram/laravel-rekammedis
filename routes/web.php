@@ -34,4 +34,6 @@ Route::get('/dataobat-admin', function () {
 
 Route::get('/datadokter', [DokterController::class, 'index']);
 Route::get('/datadokter-add', [DokterController::class, 'create']);
-// Route::post('/datadokter', [DokterController::class, 'store'])->middleware('auth');
+Route::post('/datadokter', [DokterController::class, 'store']);
+// Route::get('/course-edit/{id}', [DokterController::class, 'edit']);
+// Route::put('/course/{id}', [DokterController::class, 'update']);

@@ -13,15 +13,15 @@ class DokterController extends Controller
         return view('admin.datadokter', ['dokterList' => $dokter]);
     }
 
-    // public function create()
-    // {
-    //     $course = Dokter::all();
-    //     return view('admin.lecturer-add', ['course' => $course]);
-    // }
+    public function create()
+    {
+        $dokter = Dokter::all();
+        return view('admin.datadokter-add', ['dokter' => $dokter]);
+    }
 
-    // public function store(Request $request)
-    // {
-    //     $lecturer = Dokter::create($request->all());
-    //     return redirect('/lecturer');
-    // }
+    public function store(Request $request)
+    {
+        $dokter = Dokter::create($request->all());
+        return redirect('/datadokter');
+    }
 }
