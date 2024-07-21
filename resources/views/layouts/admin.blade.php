@@ -7,6 +7,11 @@
     <title>Siredis | @yield('title')</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('images/pnc.png') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
+    <style>
+        .custom-width {
+            width: 150px;
+        }
+    </style>
 </head>
 <body>
 

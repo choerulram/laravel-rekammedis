@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokter;
+use App\Models\Pasien;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 
@@ -27,5 +29,18 @@ class PendaftaranController extends Controller
             ->get();
 
         return view('admin.pendaftaran', ['pendaftaranList' => $pendaftaran]);
+    }
+
+    public function create()
+    {
+        $pasien = Pasien::all();
+        $dokter = Dokter::all();
+        return view('admin.pendaftaran-add', ['pasienList' => $pasien], ['dokterList' => $dokter]);
+    }
+
+    public function store(Request $request)
+    {
+        Pendaftaran::create($request->all());
+        return redirect('/pendaftaran');
     }
 }
