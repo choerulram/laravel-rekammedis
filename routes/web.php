@@ -33,7 +33,10 @@ Route::get('/dataobat-admin', function () {
 });
 
 Route::get('/datadokter', [DokterController::class, 'index']);
+Route::get('/datadokter/{id}', [DokterController::class, 'show']);
 Route::get('/datadokter-add', [DokterController::class, 'create']);
 Route::post('/datadokter', [DokterController::class, 'store']);
-// Route::get('/course-edit/{id}', [DokterController::class, 'edit']);
-// Route::put('/course/{id}', [DokterController::class, 'update']);
+Route::get('/datadokter-edit/{id}', [DokterController::class, 'edit']);
+Route::put('/datadokter/{id}', [DokterController::class, 'update']);
+// Route::get('/datadokter-delete/{id}', [DokterController::class, 'delete']);
+// Route::delete('/datadokter-destroy/{id}', [DokterController::class, 'destroy']);

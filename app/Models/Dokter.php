@@ -10,6 +10,10 @@ class Dokter extends Model
     use HasFactory;
 
     protected $table = 'tb_dokter';
+    protected $primaryKey = 'id_dokter';
+    public $incrementing = true;
+    protected $keyType = 'int';
+    public $timestamps = false;
 
     protected $fillable = [
         'nama',

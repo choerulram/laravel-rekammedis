@@ -96,13 +96,13 @@
                     </button>
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                           <li>
-                             <a href="/datadokter" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Dokter</a>
+                             <a href="/datadokter/" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Dokter</a>
                           </li>
                           <li>
-                             <a href="/datapasien-admin" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Pasien</a>
+                             <a href="/datapasien-admin/" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Pasien</a>
                           </li>
                           <li>
-                             <a href="/dataobat-admin" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Obat</a>
+                             <a href="/dataobat-admin/" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Obat</a>
                           </li>
                     </ul>
                  </li>
