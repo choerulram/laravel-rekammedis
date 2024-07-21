@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PasienController extends Controller
 {
@@ -35,6 +36,19 @@ class PasienController extends Controller
     {
         $pasien = Pasien::findOrFail($id);
         $pasien->update($request->all());
+        return redirect('/datapasien');
+    }
+
+    public function destroy($id)
+    {
+        $deletedPasien = Pasien::findOrFail($id);
+        $deletedPasien->delete();
+
+        if($deletedPasien) {
+            Session::flash('status', 'succes');
+            Session::flash('message', 'Pasien deleted successfully!');
+        }
+
         return redirect('/datapasien');
     }
 }
