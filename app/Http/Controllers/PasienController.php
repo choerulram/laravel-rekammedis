@@ -22,8 +22,17 @@ class PasienController extends Controller
 
     public function store(Request $request)
     {
-        $pasien = Pasien::create($request->all());
-        return redirect('/datapasien');
+        $pasien = Pasien::firstOrCreate(['no_kartu' => $request->input('no_kartu')], [
+            'nama' => $request->input('nama'),
+            'jk' => $request->input('jk'),
+            'umur' => $request->input('umur'),
+        ]);
+
+        if ($pasien->wasRecentlyCreated) {
+            return redirect('/datapasien')->with('success', 'Data pasien berhasil ditambahkan');
+        } else {
+            return redirect()->back()->with('error', 'No kartu sudah ada');
+        }
     }
 
     public function edit(Request $request, $id)
@@ -35,9 +44,21 @@ class PasienController extends Controller
     public function update(Request $request, $id)
     {
         $pasien = Pasien::findOrFail($id);
-        $pasien->update($request->all());
-        return redirect('/datapasien');
+        $no_kartu = $request->input('no_kartu');
+        $pasien_with_same_no_kartu = Pasien::where('no_kartu', $no_kartu)->where('id_pasien', '!=', $id)->first();
+        if ($pasien_with_same_no_kartu) {
+            return redirect()->back()->with('error', 'No kartu sudah ada');
+        } else {
+            $pasien->update($request->all());
+            return redirect('/datapasien');
+        }
     }
+    // public function update(Request $request, $id)
+    // {
+    //     $pasien = Pasien::findOrFail($id);
+    //     $pasien->update($request->all());
+    //     return redirect('/datapasien');
+    // }
 
     public function destroy($id)
     {
