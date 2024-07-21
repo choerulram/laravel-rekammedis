@@ -11,7 +11,7 @@
         </div>
         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
             <div class="mt-0">
-                <a href="/datadokter-add">
+                <a href="/dataobat-add">
                     <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" type="button">
                         Tambah Data
                     </button>
@@ -61,7 +61,7 @@
                         {{ $data->nama }}
                     </td>
                     <td class="px-6 py-4">
-                        <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center me-2 mb-2"><a href="/datadokter-edit/{{ $data->id_dokter }}">Edit</a></button>
+                        <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center me-2 mb-2"><a href="/dataobat-edit/{{ $data->id_obat }}">Edit</a></button>
                         <button type="button" data-modal-target="popup-modal-{{ $data->id_obat }}"
                             data-modal-toggle="popup-modal-{{ $data->id_obat }}"
                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center me-2 mb-2">Hapus</button>
@@ -92,7 +92,7 @@
                                 </svg>
                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda
                                     yakin ingin menghapus data: {{ $data->nama }}?</h3>
-                                <form action="/datadokter-destroy/{{ $data->id_obat }}" method="post">
+                                <form action="/dataobat-destroy/{{ $data->id_obat }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button type="submit"
