@@ -24,4 +24,17 @@ class PasienController extends Controller
         $pasien = Pasien::create($request->all());
         return redirect('/datapasien');
     }
+
+    public function edit(Request $request, $id)
+    {
+        $pasien = Pasien::findOrFail($id);
+        return view('admin.datapasien-edit', compact('pasien'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $pasien = Pasien::findOrFail($id);
+        $pasien->update($request->all());
+        return redirect('/datapasien');
+    }
 }
