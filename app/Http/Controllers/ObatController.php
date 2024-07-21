@@ -24,4 +24,17 @@ class ObatController extends Controller
         $obat = Obat::create($request->all());
         return redirect('/dataobat');
     }
+
+    public function edit(Request $request, $id)
+    {
+        $obat = Obat::findOrFail($id);
+        return view('admin.dataobat-edit', compact('obat'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $obat = Obat::findOrFail($id);
+        $obat->update($request->all());
+        return redirect('/dataobat');
+    }
 }
