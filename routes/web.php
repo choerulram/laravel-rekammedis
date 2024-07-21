@@ -3,6 +3,7 @@
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,3 +50,11 @@ Route::post('/dataobat', [ObatController::class, 'store']);
 Route::get('/dataobat-edit/{id}', [ObatController::class, 'edit']);
 Route::put('/dataobat/{id}', [ObatController::class, 'update']);
 Route::delete('/dataobat-destroy/{id}', [ObatController::class, 'destroy']);
+
+// Pendaftaran
+Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+Route::get('/pendaftaran-add', [PendaftaranController::class, 'create']);
+Route::post('/pendaftaran', [PendaftaranController::class, 'store']);
+Route::get('/pendaftaran-edit/{id}', [PendaftaranController::class, 'edit']);
+Route::put('/pendaftaran/{id}', [PendaftaranController::class, 'update']);
+Route::delete('/pendaftaran-destroy/{id}', [PendaftaranController::class, 'destroy']);

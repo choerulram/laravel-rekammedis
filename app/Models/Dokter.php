@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Dokter extends Model
 {
     use HasFactory;
-
     protected $table = 'tb_dokter';
     protected $primaryKey = 'id_dokter';
     public $incrementing = true;
