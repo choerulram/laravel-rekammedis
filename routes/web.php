@@ -38,5 +38,4 @@ Route::get('/datadokter-add', [DokterController::class, 'create']);
 Route::post('/datadokter', [DokterController::class, 'store']);
 Route::get('/datadokter-edit/{id}', [DokterController::class, 'edit']);
 Route::put('/datadokter/{id}', [DokterController::class, 'update']);
-// Route::get('/datadokter-delete/{id}', [DokterController::class, 'delete']);
-// Route::delete('/datadokter-destroy/{id}', [DokterController::class, 'destroy']);
+Route::delete('/datadokter-destroy/{id}', [DokterController::class, 'destroy']);

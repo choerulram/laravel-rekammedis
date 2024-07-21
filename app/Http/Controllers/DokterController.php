@@ -39,29 +39,16 @@ class DokterController extends Controller
         return redirect('/datadokter');
     }
 
-    // public function delete($id)
-    // {
-    //     $dokter = Dokter::findOrFail($id);
-    //     return view('admin.datadokter-delete', ['dokter' => $dokter]);
-    // }
+    public function destroy($id)
+    {
+        $deletedDokter = Dokter::findOrFail($id);
+        $deletedDokter->delete();
 
-//     public function destroy($id)
-// {
-//     $dokter = Dokter::findOrFail($id);
-//     $dokter->delete();
-//     return redirect('/datadokter')->with('success', 'Data dokter berhasil dihapus');
-// }
+        if($deletedDokter) {
+            Session::flash('status', 'succes');
+            Session::flash('message', 'Dokter deleted successfully!');
+        }
 
-    // public function destroy($id)
-    // {
-    //     $deletedDokter = Dokter::findOrFail($id);
-    //     $deletedDokter->delete();
-
-    //     if($deletedDokter) {
-    //         Session::flash('status', 'succes');
-    //         Session::flash('message', 'delete dokter success!');
-    //     }
-
-    //     return redirect('/dokter');
-    // }
+        return redirect('/datadokter');
+    }
 }
