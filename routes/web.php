@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,6 @@ Route::get('/', function () {
 Route::get('/pendaftaran-admin', function () {
     return view('admin.pendaftaran');
 });
-Route::get('/dataobat-admin', function () {
-    return view('admin.dataobat');
-});
 
 #ADMIN#
 // Dokter
@@ -43,3 +41,11 @@ Route::post('/datapasien', [PasienController::class, 'store']);
 Route::get('/datapasien-edit/{id}', [PasienController::class, 'edit']);
 Route::put('/datapasien/{id}', [PasienController::class, 'update']);
 Route::delete('/datapasien-destroy/{id}', [PasienController::class, 'destroy']);
+
+// Obat
+Route::get('/dataobat', [ObatController::class, 'index']);
+Route::get('/dataobat-add', [ObatController::class, 'create']);
+Route::post('/dataobat', [ObatController::class, 'store']);
+Route::get('/dataobat-edit/{id}', [ObatController::class, 'edit']);
+Route::put('/dataobat/{id}', [ObatController::class, 'update']);
+Route::delete('/dataobat-destroy/{id}', [ObatController::class, 'destroy']);
