@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Obat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ObatController extends Controller
 {
@@ -35,6 +36,19 @@ class ObatController extends Controller
     {
         $obat = Obat::findOrFail($id);
         $obat->update($request->all());
+        return redirect('/dataobat');
+    }
+
+    public function destroy($id)
+    {
+        $deletedObat = Obat::findOrFail($id);
+        $deletedObat->delete();
+
+        if($deletedObat) {
+            Session::flash('status', 'succes');
+            Session::flash('message', 'Obat deleted successfully!');
+        }
+
         return redirect('/dataobat');
     }
 }
