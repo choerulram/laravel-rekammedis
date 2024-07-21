@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PasienController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,20 +23,23 @@ Route::get('/', function () {
 Route::get('/pendaftaran-admin', function () {
     return view('admin.pendaftaran');
 });
-Route::get('/datadokter-admin', function () {
-    return view('admin.datadokter');
-});
-Route::get('/datapasien-admin', function () {
-    return view('admin.datapasien');
-});
 Route::get('/dataobat-admin', function () {
     return view('admin.dataobat');
 });
 
+#ADMIN#
+// Dokter
 Route::get('/datadokter', [DokterController::class, 'index']);
-Route::get('/datadokter/{id}', [DokterController::class, 'show']);
 Route::get('/datadokter-add', [DokterController::class, 'create']);
 Route::post('/datadokter', [DokterController::class, 'store']);
 Route::get('/datadokter-edit/{id}', [DokterController::class, 'edit']);
 Route::put('/datadokter/{id}', [DokterController::class, 'update']);
 Route::delete('/datadokter-destroy/{id}', [DokterController::class, 'destroy']);
+
+// Pasien
+Route::get('/datapasien', [PasienController::class, 'index']);
+Route::get('/datapasien-add', [DokterController::class, 'create']);
+Route::post('/datapasien', [DokterController::class, 'store']);
+// Route::get('/datapasien-edit/{id}', [DokterController::class, 'edit']);
+// Route::put('/datapasien/{id}', [DokterController::class, 'update']);
+// Route::delete('/datapasien-destroy/{id}', [DokterController::class, 'destroy']);
