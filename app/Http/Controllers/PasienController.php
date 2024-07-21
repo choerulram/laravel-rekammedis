@@ -12,4 +12,16 @@ class PasienController extends Controller
         $pasien = Pasien::all();
         return view('admin.datapasien', ['pasienList' => $pasien]);
     }
+
+    public function create()
+    {
+        $pasien = Pasien::all();
+        return view('admin.datapasien-add', ['pasien' => $pasien]);
+    }
+
+    public function store(Request $request)
+    {
+        $pasien = Pasien::create($request->all());
+        return redirect('/datapasien');
+    }
 }

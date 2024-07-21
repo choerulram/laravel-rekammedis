@@ -38,8 +38,8 @@ Route::delete('/datadokter-destroy/{id}', [DokterController::class, 'destroy']);
 
 // Pasien
 Route::get('/datapasien', [PasienController::class, 'index']);
-Route::get('/datapasien-add', [DokterController::class, 'create']);
-Route::post('/datapasien', [DokterController::class, 'store']);
-// Route::get('/datapasien-edit/{id}', [DokterController::class, 'edit']);
-// Route::put('/datapasien/{id}', [DokterController::class, 'update']);
-// Route::delete('/datapasien-destroy/{id}', [DokterController::class, 'destroy']);
+Route::get('/datapasien-add', [PasienController::class, 'create']);
+Route::post('/datapasien', [PasienController::class, 'store']);
+// Route::get('/datapasien-edit/{id}', [PasienController::class, 'edit']);
+// Route::put('/datapasien/{id}', [PasienController::class, 'update']);
+// Route::delete('/datapasien-destroy/{id}', [PasienController::class, 'destroy']);
