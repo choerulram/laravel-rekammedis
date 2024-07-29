@@ -65,4 +65,17 @@ class PendaftaranController extends Controller
         $pendaftaran->update($request->all());
         return redirect('/pendaftaran');
     }
+
+    public function destroy($id)
+    {
+        $deletedPendaftaran = Pendaftaran::findOrFail($id);
+        $deletedPendaftaran->delete();
+
+        if($deletedPendaftaran) {
+            Session::flash('status', 'succes');
+            Session::flash('message', 'delete student success!');
+        }
+
+        return redirect('/pendaftaran');
+    }
 }
