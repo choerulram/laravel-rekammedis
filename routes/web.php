@@ -3,6 +3,7 @@
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,16 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-# ADMIN
-Route::get('/', function () {
+#ADMIN#
+// Dashboard
+Route::get('/dashboard-admin', function () {
     return view('admin.dashboard');
 });
-Route::get('/pendaftaran-admin', function () {
-    return view('admin.pendaftaran');
-});
 
-#ADMIN#
 // Dokter
 Route::get('/datadokter', [DokterController::class, 'index']);
 Route::get('/datadokter-add', [DokterController::class, 'create']);
@@ -58,3 +55,13 @@ Route::post('/pendaftaran', [PendaftaranController::class, 'store']);
 Route::get('/pendaftaran-edit/{id}', [PendaftaranController::class, 'edit']);
 Route::put('/pendaftaran/{id}', [PendaftaranController::class, 'update']);
 Route::delete('/pendaftaran-destroy/{id}', [PendaftaranController::class, 'destroy']);
+
+
+#DOKTER#
+// Dashboard
+Route::get('/dashboard-dokter', function () {
+    return view('dokter.dashboard');
+});
+
+// Pemeriksaan
+Route::get('/pemeriksaan', [PemeriksaanController::class, 'index']);
