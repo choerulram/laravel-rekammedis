@@ -53,12 +53,6 @@ class PasienController extends Controller
             return redirect('/datapasien');
         }
     }
-    // public function update(Request $request, $id)
-    // {
-    //     $pasien = Pasien::findOrFail($id);
-    //     $pasien->update($request->all());
-    //     return redirect('/datapasien');
-    // }
 
     public function destroy($id)
     {

@@ -20,4 +20,10 @@ class Pasien extends Model
         'jk',
         'umur',
     ];
+
+    // relasi dg pendaftaran
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftaran::class, 'id_pasien');
+    }
 }

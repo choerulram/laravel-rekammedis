@@ -19,4 +19,9 @@ class Dokter extends Model
         'jk',
         'spesialis',
     ];
+
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftaran::class, 'id_dokter');
+    }
 }
