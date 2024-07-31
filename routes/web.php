@@ -5,6 +5,7 @@ use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PemeriksaanController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\SelesaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,3 +66,9 @@ Route::get('/dashboard-dokter', function () {
 
 // Pemeriksaan
 Route::get('/pemeriksaan', [PemeriksaanController::class, 'index']);
+Route::get('/pemeriksaan-edit/{id}', [PemeriksaanController::class, 'edit']);
+Route::put('/pemeriksaan/{id}', [PemeriksaanController::class, 'update']);
+
+// Selesai
+Route::get('/selesai', [SelesaiController::class, 'index']);
+Route::get('/lihatresep/{id}', [SelesaiController::class, 'lihat']);

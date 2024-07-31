@@ -17,4 +17,9 @@ class Obat extends Model
     protected $fillable = [
         'nama',
     ];
+
+    public function resep()
+    {
+        return $this->hasMany(Resep::class, 'id_obat');
+    }
 }
