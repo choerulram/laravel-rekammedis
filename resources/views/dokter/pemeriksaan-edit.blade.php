@@ -69,13 +69,13 @@
                     <div class="col-span-2">
                         <label for="resep_obat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resep
                             Obat:</label>
-                        <input type="text" name="resep_obat" id="resep_obat"
+                        <input type="text" name="resep_obat[]" id="resep_obat"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="Resep obat..." required />
                     </div>
                     <div>
                         <label for="keterangan" class="block text-sm font-medium text-gray-700">Keterangan Resep:</label>
-                        <textarea name="keterangan" id="keterangan" rows="3" placeholder="Keterangan tambahan..." required
+                        <textarea name="keterangan[]" id="keterangan" rows="3" placeholder="Keterangan tambahan..." required
                             class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">{{ $pemeriksaanList->resep->first()->keterangan ?? '' }}</textarea>
                     </div>
                     <button type="button"

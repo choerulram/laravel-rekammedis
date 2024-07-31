@@ -50,6 +50,7 @@ class PemeriksaanController extends Controller
     public function update(Request $request, $id)
     {
         $pemeriksaan = Pemeriksaan::findOrFail($id);
+
         // Update data pemeriksaan
         $pemeriksaan->update($request->all());
 
@@ -57,13 +58,17 @@ class PemeriksaanController extends Controller
         $pemeriksaan->status = 'selesai';
         $pemeriksaan->save();
 
-        // Simpan resep obat jika ada
-        if ($request->has('obat')) {
-            foreach ($request->input('obat') as $obatId) {
+        // Hapus resep lama terkait pemeriksaan ini
+        Resep::where('id_rekam', $id)->delete();
+
+        // Simpan resep obat baru jika ada
+        if ($request->has('id_obat') && is_array($request->input('id_obat'))) {
+            foreach ($request->input('id_obat') as $key => $obatId) {
                 Resep::create([
                     'id_rekam' => $pemeriksaan->id_rekam,
                     'id_obat' => $obatId,
-                    'keterangan' => $request->input('keterangan') ?? '',
+                    'resep_obat' => $request->input('resep_obat')[$key] ?? '',
+                    'keterangan' => $request->input('keterangan')[$key] ?? '',
                 ]);
             }
         }
